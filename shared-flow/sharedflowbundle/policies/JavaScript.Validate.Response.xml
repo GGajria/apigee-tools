@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Javascript name="JavaScript.Validate.Response" enabled="true" continueOnError="false" async="false" timeLimit="200">
+    <DisplayName>JavaScript.Validate.Response</DisplayName>
+    <Properties/>
+    <ResourceURL>jsc://JavaScript.Validate.Response.js</ResourceURL>
+</Javascript>

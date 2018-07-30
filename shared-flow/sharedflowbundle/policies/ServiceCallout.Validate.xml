@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ServiceCallout name="ServiceCallout.Validate" enabled="true" continueOnError="true" async="false">
+    <DisplayName>ServiceCallout.Validate</DisplayName>
+    <Properties/>
+    <Request variable="flow.validation.request">
+        <Set>
+            <Headers>
+                <Header name="Accept">application/json</Header>
+                <Header name="Content-Type">application/json</Header>
+                <Header name="Authorization">Basic {base64-encoded-credentials}</Header>
+            </Headers>
+            <Payload contentType="application/json">{"access_token":"{flow.accesstoken}"}</Payload>
+            <Verb>POST</Verb>
+            <Path>/token/verify</Path>
+        </Set>
+    </Request>
+    <Response>flow.validation.response</Response>
+    <Timeout>30000</Timeout>
+    <HTTPTargetConnection>
+        <SSLInfo>
+            <Enabled>true</Enabled>
+            <ClientAuthEnabled>true</ClientAuthEnabled>
+            <KeyStore>ks</KeyStore>
+            <KeyAlias>alias</KeyAlias>
+            <TrustStore>ts</TrustStore>
+        </SSLInfo>
+        <Properties/>
+        <URL>https://my_real_url:port</URL>
+    </HTTPTargetConnection>
+</ServiceCallout>

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+
+     <modelVersion>4.0.0</modelVersion>
+     <groupId>apigee</groupId>
+     <artifactId>validate-token</artifactId>
+     <version>-</version> 
+     <name>validate-token</name>
+     <packaging>pom</packaging>
+
+     <pluginRepositories>
+         <pluginRepository>
+             <id>central</id>
+             <name>Maven Plugin Repository</name>
+             <url>http://repo1.maven.org/maven2</url>
+             <layout>default</layout>
+             <snapshots>
+                 <enabled>false</enabled>
+             </snapshots>
+             <releases>
+                 <updatePolicy>never</updatePolicy>
+             </releases>
+         </pluginRepository>
+     </pluginRepositories>
+
+     <properties>
+         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+         <org.slf4j.simpleLogger.defaultLogLevel>info</org.slf4j.simpleLogger.defaultLogLevel>
+         <project.root.dir>${basedir}</project.root.dir>
+         <target.root.dir>${basedir}/target</target.root.dir>
+     </properties>
+
+     <!-- This is where you add the environment specific properties under various profile names -->
+     <!-- For apigee.options, refer to "Advanced Configuration Options" under https://github.com/apigee/apigee-deploy-maven-plugin#pom-xml-sample -->
+     <profiles>
+         <profile>
+         <id>profile</id>
+             <properties>
+                 <apigee.profile>env</apigee.profile>
+                 <apigee.env>env</apigee.env>
+                 <apigee.hosturl>https://api.enterprise.apigee.com</apigee.hosturl>
+                 <apigee.apiversion>v1</apigee.apiversion> <!-- value of version in  https://api.enterprise.apigee.com/v2 -->
+                 <apigee.org>org</apigee.org>
+                 <apigee.username>${username}</apigee.username>
+                 <apigee.password>${password}</apigee.password>
+                 <apigee.options>validate,override</apigee.options>
+                 <apigee.override.delay>5</apigee.override.delay>
+                 <apigee.apitype>sharedflow</apigee.apitype> <!-- This is only for Shared Flows. Not required for deploying proxy -->
+             </properties>
+         </profile>
+     </profiles>
+
+     <build>
+         <pluginManagement>
+             <plugins>
+                 <plugin>
+                     <groupId>io.apigee.build-tools.enterprise4g</groupId>
+                     <artifactId>apigee-edge-maven-plugin</artifactId>
+                     <!--version>1.1.2</version-->
+                     <version>1.1.6</version>
+                 </plugin>
+             </plugins>
+         </pluginManagement> 
+         <plugins>
+             <plugin>
+                 <artifactId>maven-clean-plugin</artifactId>
+                 <version>2.5</version>
+                 <!-- clean target directory -->
+                 <executions>
+                     <execution>
+                         <id>auto-clean-init</id>
+                         <phase>initialize</phase>
+                         <goals>
+                             <goal>clean</goal>
+                         </goals>
+                     </execution>
+                     <!--execution>
+                         <id>auto-clean-install</id>
+                         <phase>install</phase>
+                         <goals>
+                             <goal>clean</goal>
+                         </goals>
+                     </execution-->
+                 </executions>
+             </plugin> 
+
+             <plugin>
+                 <artifactId>maven-resources-plugin</artifactId>
+                 <version>2.6</version>
+                 <executions>
+                     
+                     <execution>
+                         <id>copy-node-resources</id>
+                         <phase>process-resources</phase>
+                         <goals>
+                             <goal>copy-resources</goal>
+                         </goals>
+                         <configuration>
+                             <overwrite>true</overwrite>
+                             <resources>
+                                 <resource>
+                                     <directory>${project.root.dir}/sharedflowbundle</directory>
+                                     <excludes>
+                                         
+                                     </excludes>
+                                 </resource>
+                             </resources>
+                             <outputDirectory>${target.root.dir}/sharedflowbundle</outputDirectory>
+                         </configuration>
+                     </execution>
+                     
+                 </executions>
+             </plugin>
+
+
+             <plugin>
+                 <groupId>io.apigee.build-tools.enterprise4g</groupId>
+                 <artifactId>apigee-edge-maven-plugin</artifactId>
+                 <configuration>
+                     <skip>false</skip> 
+                 </configuration>
+                 <executions>
+                     <!-- configure bundle -->
+                     <execution>
+                         <id>configure-bundle</id>
+                         <phase>package</phase>
+                         <goals>
+                             <goal>configure</goal>
+                         </goals>
+                     </execution>
+                     <!-- deploy bundle -->
+                     <execution>
+                         <id>deploy-bundle</id>
+                         <phase>install</phase>
+                         <goals>
+                             <goal>deploy</goal>
+                         </goals>
+                     </execution>
+                 </executions>
+             </plugin>
+             
+         </plugins>
+     </build>
+</project>

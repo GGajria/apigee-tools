@@ -1,0 +1,18 @@
+{  
+    "configurations":[  
+       {  
+          "name":"profile",
+          "policies":[  
+             {  
+                "name":"ServiceCallout.Validate.xml",
+                "tokens":[  
+                   {  
+                      "value":"https://my_real_url_goes_here:port",
+                      "xpath":"/ServiceCallout/HTTPTargetConnection/URL"
+                   }
+                ]
+             }
+          ]
+       }
+    ]
+}

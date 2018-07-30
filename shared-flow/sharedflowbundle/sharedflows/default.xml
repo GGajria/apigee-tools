@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<SharedFlow name="default">
+    <Step>
+        <Name>RaiseFault.InvalidAccessToken</Name>
+        <Condition>request.header.Authorization ~~ "^Basic .*$"</Condition>
+    </Step>
+    <Step>
+        <Name>ServiceCalloutMbaasValidate</Name>
+    </Step>
+    <Step>
+        <Name>JavaScript.Validate.Response</Name>
+    </Step>
+</SharedFlow>
