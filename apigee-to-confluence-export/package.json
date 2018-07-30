@@ -1,0 +1,19 @@
+{
+  "name": "apigee-apps-updater",
+  "version": "1.0.0",
+  "description": "Updates Apigee artifact details on Confluence (wiki)",
+  "main": "app.js",
+  "dependencies": {
+    "https-proxy-agent": "^2.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+	"with-noproxy-nonprod": "node app.js <apigee_nonprod_org> <apigee_username> <apigee_password> <confluence_username> <confluence_password> <wiki_nonprod_pageid> noproxy",
+	"with-proxy-nonprod": "node app.js <apigee_nonprod_org> <apigee_username> <apigee_password> <confluence_username> <confluence_password> <wiki_nonprod_pageid>",
+	"with-noproxy-prod": "node app.js <apigee_prod_org> <apigee_username> <apigee_password> <confluence_username> <confluence_password> <wiki_prod_pageid> noproxy",
+	"with-proxy-prod": "node app.js <apigee_prod_org> <apigee_username> <apigee_password> <confluence_username> <confluence_password> <wiki_prod_pageid>"
+  },
+  "author": "",
+  "license": "ISC"
+}
