@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<APIProxy revision="7" name="kafka-client">
+    <Basepaths>/kafka-client</Basepaths>
+    <ConfigurationVersion majorVersion="4" minorVersion="0"/>
+    <CreatedAt>1626164979569</CreatedAt>
+    <CreatedBy>defaultUser</CreatedBy>
+    <Description></Description>
+    <DisplayName>kafka-client</DisplayName>
+    <LastModifiedAt>1626170466492</LastModifiedAt>
+    <LastModifiedBy>defaultUser</LastModifiedBy>
+    <ManifestVersion>SHA-512:9a4347f356657e36012d876fd6099720f05fc501be8892f13ce72f471c00e912d6b2797ee11d80296a793458460eccc8c64bc6e6f683bec05c2ec793a1e0e37d:ap-northeast-1</ManifestVersion>
+    <Policies>
+        <Policy>AMSetResponse</Policy>
+        <Policy>ExtractParams</Policy>
+        <Policy>GetKafka</Policy>
+        <Policy>PushKafka</Policy>
+        <Policy>setUpPushParams</Policy>
+    </Policies>
+    <ProxyEndpoints>
+        <ProxyEndpoint>default</ProxyEndpoint>
+    </ProxyEndpoints>
+    <Resources>
+        <Resource>java://apigee-kafka-client.jar</Resource>
+        <Resource>java://gson-2.8.7.jar</Resource>
+        <Resource>java://kafka-clients-2.8.0.jar</Resource>
+        <Resource>jsc://setUpPushParams.js</Resource>
+    </Resources>
+    <Spec></Spec>
+    <TargetServers/>
+    <TargetEndpoints/>
+</APIProxy>

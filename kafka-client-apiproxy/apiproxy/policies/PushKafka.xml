@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<JavaCallout async="false" continueOnError="false" enabled="true" name="PushKafka">
+    <DisplayName>PushKafka</DisplayName>
+    <Properties/>
+    <ClassName>kafka.client.ApigeeKafkaProducerClient</ClassName>
+    <ResourceURL>java://apigee-kafka-client.jar</ResourceURL>
+</JavaCallout>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ProxyEndpoint name="default">
+    <PreFlow name="PreFlow">
+        <Request/>
+        <Response/>
+    </PreFlow>
+    <Flows>
+        <Flow name="Push">
+            <Description/>
+            <Request>
+                <Step>
+                    <Name>ExtractParams</Name>
+                </Step>
+                <Step>
+                    <Name>setUpPushParams</Name>
+                </Step>
+                <Step>
+                    <Name>PushKafka</Name>
+                </Step>
+            </Request>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/push") and (request.verb = "POST")</Condition>
+        </Flow>
+        <Flow name="Get">
+            <Description/>
+            <Request>
+                <Step>
+                    <Name>setUpPushParams</Name>
+                </Step>
+                <Step>
+                    <Name>GetKafka</Name>
+                </Step>
+                <Step>
+                    <Name>AMSetResponse</Name>
+                </Step>
+            </Request>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/get") and (request.verb = "GET")</Condition>
+        </Flow>
+    </Flows>
+    <PostFlow name="PostFlow">
+        <Request/>
+        <Response/>
+    </PostFlow>
+    <HTTPProxyConnection>
+        <BasePath>/kafka-client</BasePath>
+        <VirtualHost>https_vhost</VirtualHost>
+    </HTTPProxyConnection>
+    <RouteRule name="noroute"/>
+</ProxyEndpoint>

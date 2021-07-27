@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Manifest name="manifest">
+    <Policies>
+        <VersionInfo resourceName="AMSetResponse" version="SHA-512:d17830c77d3ac571ac48556c019893da6a7a00372a3409e86a8bc4e5f6afd08f2a2353943320b256f54462e0291d111d4cdb663c7c4277b2ea472313cf9e27de"/>
+        <VersionInfo resourceName="ExtractParams" version="SHA-512:2de6ec5d5bb504913e7c165d28603f7680008569f854014d780dd6bf0b5de834e0477deb84bd0caaf252de3576450d7f7dd1446e58d45cc07b430962f267377a"/>
+        <VersionInfo resourceName="GetKafka" version="SHA-512:9b7e6c59ff09eab983ae5f6d56e968a6c47204200240bf68bb88a2c5a7ee7713a1f8b7e637362a4d0dddb8f45e7ab3bbbbe58d2f2162d60b7d9b8b6a42cc7291"/>
+        <VersionInfo resourceName="PushKafka" version="SHA-512:4a903d5a25181702dd9bde72fc4d7227ff47a5b4a1f5e20eabc29870466363817ff613368599323b4b0fb5bbc9c9588e4a9aacbe1e3999b8382e6adc580e2cf4"/>
+        <VersionInfo resourceName="setUpPushParams" version="SHA-512:db0f364b9beeb0e6004cbfbcea56f8a7fa3abe0d39e84eac67e39c0689e6668fcbaf89a753b3f22f230f9281fcef2cfe5d77c9d69206691abfb43078c22b97fd"/>
+    </Policies>
+    <ProxyEndpoints>
+        <VersionInfo resourceName="default" version="SHA-512:31f16469fea8492da532d93067acf02e6fe10aeda68e0b2165aade2d8cb12918faacd50bbadc62982c633e34406de970c67ef2f98708a88fb936ea5a258c211f"/>
+    </ProxyEndpoints>
+    <Resources>
+        <VersionInfo resourceName="java://apigee-kafka-client.jar" version="SHA-512:e1e39cae8ab5306b0c7e988225c877b1a07123ade435e622f3e219f907d691fd0083ac3eeffe5da578ab916f584be1fa82ba049ab2997a8ef4fbbab8f4180f29"/>
+        <VersionInfo resourceName="java://gson-2.8.7.jar" version="SHA-512:1babec24dd2a32553440376d9838997833ae4c72e77b84c73b50bc2e71d2125ad3ed9536ce4bb6984aae4ae87d41ddf70b3268cce66e6f3cfb0628ecf673a211"/>
+        <VersionInfo resourceName="java://kafka-clients-2.8.0.jar" version="SHA-512:4a245b0d9d6edf3e086dbb803a0592d5b4c63a3d859b336bd702eb23fb72c9fef1421c2d617ab379d3651760da91925eca96bc25fbf9b659371419aa25d1ce98"/>
+        <VersionInfo resourceName="jsc://setUpPushParams.js" version="SHA-512:95d87e60a0ef65045bf88708618a885364ac82d75c809a4d7026bb40f1efadcd17b2afb2f3ca015809682611246354808c5fbcc2dd72c6c4e2d19f2d686a65f6"/>
+    </Resources>
+    <SharedFlows/>
+    <TargetEndpoints/>
+</Manifest>
